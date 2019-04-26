@@ -4,28 +4,32 @@
  * @flow
  */
 
-'use strict';
+"use strict";
 
-import React, { NativeModules, Platform } from 'react-native';
+import React, { NativeModules, Platform } from "react-native";
 
-const Native = Platform.OS === 'android' ? NativeModules.RNSweetAlert : NativeModules.SweetAlertManager;
+const Native =
+  Platform.OS === "android"
+    ? NativeModules.RNSweetAlert
+    : NativeModules.SweetAlertManager;
 
 const DEFAULT_OPTIONS = {
-  title: '',
-  subTitle: '',
-  confirmButtonTitle: 'OK',
-  confirmButtonColor: '#000',
-  otherButtonTitle: 'Cancel',
-  otherButtonColor: '#dedede',
-  style: 'success',
+  title: "",
+  subTitle: "",
+  confirmButtonTitle: "OK",
+  confirmButtonColor: "#000000",
+  barColor: "",
+  otherButtonTitle: "Cancel",
+  otherButtonColor: "#dedede",
+  style: "success",
   cancellable: true
-}
+};
 
 const SweetAlert = {
   showAlertWithOptions: (options, callback = () => {}) => {
-    Native.showAlertWithOptions(options ? options : DEFAULT_OPTIONS, callback)
+    Native.showAlertWithOptions(options ? options : DEFAULT_OPTIONS, callback);
   },
-  dismissAlert: () => Native.hideSweetAlert(),
+  dismissAlert: () => Native.hideSweetAlert()
 };
 
 export default SweetAlert;

@@ -23,12 +23,13 @@ public class RNSweetAlertModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void showSweetAlert(ReadableMap options, final Callback acceptCallback, final Callback cancelCallback) {
+  public void showAlertWithOptions(ReadableMap options, final Callback acceptCallback) {
     sweetAlertDialog = new SweetAlertDialog(getCurrentActivity());
-    String type = options.getString("type");
-    String title = options.getString("title");
-    String contentText = options.getString("contentText");
-    boolean cancellable = options.getBoolean("cancellable");
+    String type = options.hasKey("style") ? options.getString("style") : "normal";
+    String title = options.hasKey("title") ? options.getString("title") : "";
+    String contentText = options.hasKey("subTitle") ? options.getString("subTitle") : "";
+    String barColor = options.hasKey("barColor") ? options.getString("barColor") : "";
+    boolean cancellable = !options.hasKey("cancellable") || options.getBoolean("cancellable");
     switch (type) {
       case "normal":
         sweetAlertDialog.changeAlertType(SweetAlertDialog.NORMAL_TYPE);
@@ -67,6 +68,9 @@ public class RNSweetAlertModule extends ReactContextBaseJavaModule {
     sweetAlertDialog.setTitleText(title);
     sweetAlertDialog.setContentText(contentText);
     sweetAlertDialog.setCancelable(cancellable);
+    if (!barColor.equals("")) {
+      setBarColor(barColor);
+    }
     sweetAlertDialog.show();
   }
 
