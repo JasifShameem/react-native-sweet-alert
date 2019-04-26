@@ -7,7 +7,7 @@
 
 ## Getting started
 
-`$ npm install react-native-sweet-alert --save`
+`$ npm install JasifShameem/react-native-sweet-alert --save`
 
 ### Mostly automatic installation
 
