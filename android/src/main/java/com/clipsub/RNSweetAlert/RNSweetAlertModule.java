@@ -61,7 +61,7 @@ public class RNSweetAlertModule extends ReactContextBaseJavaModule {
     sweetAlertDialog.setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
       @Override
       public void onClick(SweetAlertDialog sweetAlertDialog) {
-        cancelCallback.invoke("cancelled");
+        // cancelCallback.invoke("cancelled");
         sweetAlertDialog.dismissWithAnimation();
       }
     });
