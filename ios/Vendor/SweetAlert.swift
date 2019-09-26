@@ -286,7 +286,7 @@ open class SweetAlert: UIViewController {
             button.backgroundColor = otherButtonColor
             button.addTarget(self, action: #selector(SweetAlert.pressed(_:)), for: UIControl.Event.touchUpInside)
             button.tag = 1
-            buttons.append(button)
+            // buttons.append(button)
         }
         
         resizeAndRelayout()
