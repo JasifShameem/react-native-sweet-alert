@@ -277,7 +277,7 @@ open class SweetAlert: UIViewController {
             button.backgroundColor = buttonColor
             button.isUserInteractionEnabled = true
             button.tag = 0
-            buttons.append(button)
+            // buttons.append(button)
         }
         
         if otherButtonTitle != nil && otherButtonTitle!.isEmpty == false {
