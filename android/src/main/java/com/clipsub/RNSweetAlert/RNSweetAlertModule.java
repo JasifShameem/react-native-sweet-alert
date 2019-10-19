@@ -67,6 +67,7 @@ public class RNSweetAlertModule extends ReactContextBaseJavaModule {
     sweetAlertDialog.setTitleText(title);
     sweetAlertDialog.setContentText(contentText);
     sweetAlertDialog.setCancelable(cancellable);
+    sweetAlertDialog.hideConfirmButton();
     if (!barColor.equals("")) {
       setBarColor(barColor);
     }
